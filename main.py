@@ -182,7 +182,7 @@ else:
             f"**Region**: {quake_info['region']}\n"
             f"**Alert Level**: {quake_info['alert_level']}\n"
             f"**Number of People Who Felt**: {quake_info['felt']} people\n\n"
-            f"**Interactive Map**: [Click here]({quake_info['url']})\n"
+            f"**Interactive Map**: [Click here]({quake_info['url']+'/map'})\n" 
             f"**More Info**: [Click here]({quake_info['url']})"
         )
 
