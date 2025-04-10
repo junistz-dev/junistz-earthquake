@@ -10,15 +10,15 @@ load_dotenv()
 # ✅ 디버깅용 하드코딩 (날짜, 시간)
 today_date = "2025-04-09"
 current_time_text = "00:00 UTC"
-today_start = datetime(2025, 4, 9, 0, 0, 0)
-today_end = datetime(2025, 4, 9, 23, 59, 59)
+# today_start = datetime(2025, 4, 9, 0, 0, 0)
+# today_end = datetime(2025, 4, 9, 23, 59, 59)
 
 # 🟡 실시간 사용 시 아래 코드 사용 (현재는 주석처리)
-# current_time = datetime.utcnow()
-# today_start = current_time.replace(hour=0, minute=0, second=0, microsecond=0)
-# today_end = current_time
-# today_date = current_time.strftime('%Y-%m-%d')
-# current_time_text = current_time.strftime('%H:%M UTC')
+current_time = datetime.utcnow()
+today_start = current_time.replace(hour=0, minute=0, second=0, microsecond=0)
+today_end = current_time
+today_date = current_time.strftime('%Y-%m-%d')
+current_time_text = current_time.strftime('%H:%M UTC')
 
 # ========== 설정 ==========
 url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
