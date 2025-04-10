@@ -43,9 +43,9 @@ def is_significant_quake(quake):
 
     return (
         # 강도를 1 이상으로 설정하여 더 작은 지진도 포함
-        magnitude >= 1 and
+        magnitude >= 3 and
         # 깊이를 1000km 이하로 설정하여 더 깊은 지진도 포함
-        depth <= 1000 and
+        depth <= 10 and
         # "city", "near", "km" 외에도 "sea"나 "ocean"도 포함하여 더 많은 지진을 포착
         ("city" in place or "near" in place or "km" in place or "sea" in place or "ocean" in place) and
         # 경고 수준을 "green"도 포함하여 더 많은 지진을 포착
