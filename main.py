@@ -169,7 +169,6 @@ else:
 
     for count, quake_info in enumerate(earthquake_list, start=1):
         earthquake_description = (
-            f"===============================================\n"
             f"**Earthquake #{count} on {today_date}** 🌍\n\n"
             f"**Location**: {quake_info['location']}\n"
             f"**Magnitude**: {quake_info['magnitude']}\n"
