@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 # ========== 날짜/시간 설정 ==========
 # ✅ 디버깅용 하드코딩 (날짜, 시간)
-today_date = "2025-04-09"
-current_time_text = "00:00 UTC"
+# today_date = "2025-04-09"
+# current_time_text = "00:00 UTC"
 # today_start = datetime(2025, 4, 9, 0, 0, 0)
 # today_end = datetime(2025, 4, 9, 23, 59, 59)
 
@@ -42,10 +42,15 @@ def is_significant_quake(quake):
     is_sea = "sea" in place or "ocean" in place
 
     return (
-        magnitude >= 0 and
-        depth <= 70 and
-        ("city" in place or "near" in place or "km" in place) and
-        (alert in ["orange", "red"] or (felt and felt > 10)) and
+        # 강도를 1 이상으로 설정하여 더 작은 지진도 포함
+        magnitude >= 1 and
+        # 깊이를 1000km 이하로 설정하여 더 깊은 지진도 포함
+        depth <= 1000 and
+        # "city", "near", "km" 외에도 "sea"나 "ocean"도 포함하여 더 많은 지진을 포착
+        ("city" in place or "near" in place or "km" in place or "sea" in place or "ocean" in place) and
+        # 경고 수준을 "green"도 포함하여 더 많은 지진을 포착
+        (alert in ["orange", "red", "green"] or (felt and felt > 0)) and
+        # 오늘 날짜 범위 내에서 발생한 지진
         (today_start <= time <= today_end)
     ), time, is_sea
 
